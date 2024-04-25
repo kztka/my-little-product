@@ -1,0 +1,6 @@
+{
+  "gamename":"Game1",
+  "mapset": [
+    {"mapname":"StrategyMap1", "maporder":0}
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "jsonDirPath":".\\Assets\\Data\\StrategyMap",
+  "mapping": {
+    "mapname":[
+      { "tableName":"StrategyMap", "columnName":"mapname", "columnType":"text", "columnOption":["primary key","not null"] },
+      { "tableName":"StrategyBase", "columnName":"mapname", "columnType":"text", "columnOption":["primary key","not null"] },
+      { "tableName":"StrategyConnection", "columnName":"mapname", "columnType":"text", "columnOption":["not null"] }
+    ],
+    "bgImagePath":[
+      { "tableName":"StrategyMap", "columnName":"bgImagePath", "columnType":"text", "columnOption":[] }
+    ],
+    "bgImageXScale":[
+      { "tableName":"StrategyMap", "columnName":"bgImageXScale", "columnType":"real", "columnOption":[] }
+    ],
+    "bgImageYScale":[
+      { "tableName":"StrategyMap", "columnName":"bgImageYScale", "columnType":"real", "columnOption":[] }
+    ],
+    "bases": {
+      "name":[
+        { "tableName":"StrategyBase", "columnName":"basename", "columnType":"text", "columnOption":["primary key","not null"] }
+      ],
+      "texturePath":[
+        { "tableName":"StrategyBase", "columnName":"texturePath", "columnType":"text", "columnOption":[] }
+      ],
+      "textureXScale":[
+        { "tableName":"StrategyBase", "columnName":"textureXScale", "columnType":"real", "columnOption":[] }
+      ],
+      "textureYScale":[
+        { "tableName":"StrategyBase", "columnName":"textureYScale", "columnType":"real", "columnOption":[] }
+      ],
+      "x":[
+        { "tableName":"StrategyBase", "columnName":"x", "columnType":"real", "columnOption":[] }
+      ],
+      "y":[
+        { "tableName":"StrategyBase", "columnName":"y", "columnType":"real", "columnOption":[] }
+      ],
+      "fortressFlg":[
+        { "tableName":"StrategyBase", "columnName":"fortressFlg", "columnType":"text", "columnOption":[] }
+      ]
+    },
+    "connections": {
+      "origBaseName":[
+        { "tableName":"StrategyConnection", "columnName":"origBaseName", "columnType":"text", "columnOption":[] }
+      ],
+      "destBaseName":[
+        { "tableName":"StrategyConnection", "columnName":"destBaseName", "columnType":"text", "columnOption":[] }
+      ]
+    }
+  }
+}

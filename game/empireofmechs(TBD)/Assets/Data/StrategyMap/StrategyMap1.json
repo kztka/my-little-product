@@ -1,0 +1,17 @@
+{
+  "mapname":"StrategyMap1",
+  "bgImagePath":".\\Assets\\Image\\StrategyMap\\google01.jpg",
+  "bgImageXScale":10,
+  "bgImageYScale":10,
+  "bases": [
+    {"name":"tokyo","texturePath": ".\\Assets\\Image\\StrategyMap\\base\\base1.png","textureXScale":1,"textureYScale":1,"x":0,"y":0,"fortressFlg":true},
+    {"name":"osaka","texturePath": ".\\Assets\\Image\\StrategyMap\\base\\base1.png","textureXScale":1,"textureYScale":1,"x":5,"y":8,"fortressFlg":true},
+    {"name":"newyork","texturePath": ".\\Assets\\Image\\StrategyMap\\base\\base1.png","textureXScale":1,"textureYScale":1,"x":8,"y":-2,"fortressFlg":true},
+    {"name":"beijing","texturePath": ".\\Assets\\Image\\StrategyMap\\base\\base1.png","textureXScale":1,"textureYScale":1,"x":-3,"y":7,"fortressFlg":true}
+  ],
+  "connections": [
+    {"origBaseName":"tokyo","destBaseName":"osaka"},
+    {"origBaseName":"tokyo","destBaseName":"newyork"},
+    {"origBaseName":"newyork","destBaseName":"beijing"}
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "gameplay":{
+      "camZoomReverse":-1,
+      "camZoomSensitive":10.0,
+      "camMoveSensitive":0.8
+  }
+}

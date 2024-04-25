@@ -1,0 +1,17 @@
+{
+  "jsonDirPath":".\\Assets\\Data\\Game",
+  "mapping": {
+    "gamename":[
+      { "tableName":"Game", "columnName":"gamename", "columnType":"text", "columnOption":["primary key","not null"] },
+      { "tableName":"StrategyMapSetPerGame", "columnName":"gamename", "columnType":"text", "columnOption":["primary key","not null","unique"] }
+    ],
+    "mapset": {
+      "mapname":[
+        { "tableName":"StrategyMapSetPerGame", "columnName":"mapname", "columnType":"text", "columnOption":["primary key","not null","unique"] }
+      ],
+      "maporder":[
+        { "tableName":"StrategyMapSetPerGame", "columnName":"maporder", "columnType":"integer", "columnOption":["not null","unique"] }
+      ]
+    }
+  }
+}
