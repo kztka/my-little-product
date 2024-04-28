@@ -54,7 +54,6 @@ Python 3.7.16
 `pip3 install matplotlib`  
 `pip3 install seaborn`  
 `pip3 install mplfinance`  
-```
 TA-Libインストール  
 `sudo yum install python3-devel`  
 `wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz`  
@@ -65,4 +64,3 @@ TA-Libインストール
 `sudo make install ( 削除はsudo make uninstall )`  
 `cd ../`  
 `pip3 install TA-Lib`  
-```
