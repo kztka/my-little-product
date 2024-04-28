@@ -34,8 +34,7 @@ https://note.com/scilabcafe/n/ne7e080cad499
 ```nohup python3 coin_autoexchange_technical.py BTC 80 > coin_autoexchange_technical-`date +%Y%m%d_%H%M%S`.log 2>&1 &```  
 ※[オプション1] 銘柄種類を入力 (例：BTC)  
 　[オプション2] 取引余力から何％までを購入に充てるかを入力 (例:80)  
-　銘柄の種類は以下参照
-　https://api.coin.z.com/docs/?python#parameters-ref  
+　銘柄の種類はこちらを参照　　https://api.coin.z.com/docs/?python#parameters-ref  
 ※事前に直下に以下ファイルを配置する。  
 　apikey.txt (GMOコイン側で発行したapikeyを記述)  
 　apisecret.txt (GMOコイン側で発行したapisecretを記述)  
