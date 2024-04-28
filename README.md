@@ -46,8 +46,7 @@ Python 3.7.16
   
 また、事前に以下ライブラリをインストールする  
 `pip3 install requests`  
-`pip3 install --upgrade urllib3==1.26.15`  
-※python3.7だとrequestsが使っているurllib3の最新版(2.0.7)が参照するopenssl1.1.1が使用できない為、urllib3をダウングレードする。  
+`pip3 install --upgrade urllib3==1.26.15`　※python3.7だとrequestsが使っているurllib3の最新版(2.0.7)が参照するopenssl1.1.1が使用できない為、urllib3をダウングレードする。  
 `pip3 install pandas`  
 `pip3 install scikit-learn`  
 `pip3 install matplotlib`  
