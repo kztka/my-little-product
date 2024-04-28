@@ -4,11 +4,10 @@ Copyright(C) 2024 Kazuki Takahashi  All rights reserved in this repository files
 
 ## 仮想通貨自動取引プログラム(auto_exchange/GMOcoin)
 #### 概要
-- coin_autoexchange.py
+- coin_autoexchange.py  
 GMOコイン様が提供しているAPIを使用して仮想通貨の値動きの波を分析して自動的に波形の谷で買い、山で売るプログラム。  
 Scikit-learn機械学習の線形回帰(Linear Regression)を使用し一定期間内の値動きについて傾きを抽出する事で谷なのか山なのかを判断する。  
-ビットコインを始めとする23銘柄に対応。  
-  
+ビットコインを始めとする23銘柄に対応。    
 参考：  
 GMOコインAPI仕様書  
 https://api.coin.z.com/docs/?python#  
@@ -18,8 +17,7 @@ https://qiita.com/0NE_shoT_/items/08376b08783cd554b02e
 - coin_autoexchange_technical.py  
 coin_autoexchange.pyのMACD版。  
 MACDは金融テクニカル分析の一種でこちらも波形の谷で買い判断、山で売り判断をするトレンド分析手法の一種。  
-分析ライブラリは「TA-Lib」を使用。  
-  
+分析ライブラリは「TA-Lib」を使用。     
 参考：  
 MACD  
 https://info.monex.co.jp/technical-analysis/indicators/002.html  
@@ -32,11 +30,11 @@ https://note.com/scilabcafe/n/ne7e080cad499
 
 
 #### 使い方
-`nohup python3 coin_autoexchange.py BTC 80 > coin_autoexchange-\`date +%Y%m%d_%H%M%S\`.log 2>&1 &`  
-`nohup python3 coin_autoexchange_technical.py BTC 80 > coin_autoexchange_technical-\`date +%Y%m%d_%H%M%S\`.log 2>&1 &`  
+```nohup python3 coin_autoexchange.py BTC 80 > coin_autoexchange-`date +%Y%m%d_%H%M%S`.log 2>&1 &```  
+```nohup python3 coin_autoexchange_technical.py BTC 80 > coin_autoexchange_technical-`date +%Y%m%d_%H%M%S`.log 2>&1 &```  
 
 #### 動作確認環境
-Amazon Linux2  
+Amazon Linux 2  
 Python 3.7.16  
   
 また、事前に以下ライブラリをインストールする  
@@ -47,13 +45,14 @@ Python 3.7.16
 `pip3 install scikit-learn`  
 `pip3 install matplotlib`  
 `pip3 install seaborn`  
-`sudo yum install python3-devel  
-wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz  
-tar -zxvf ta-lib-0.4.0-src.tar.gz  
-cd ta-lib  
-./configure --prefix=/usr  
-sudo make ( 削除はsudo make clean )  
-sudo make install ( 削除はsudo make uninstall )  
-cd ../  
-pip3 install TA-Lib`  
 `pip3 install mplfinance`  
+TA-Libインストール  
+`sudo yum install python3-devel` 
+`wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz`  
+`tar -zxvf ta-lib-0.4.0-src.tar.gz`  
+`cd ta-lib`  
+`./configure --prefix=/usr`  
+`sudo make ( 削除はsudo make clean )`  
+`sudo make install ( 削除はsudo make uninstall )`  
+`cd ../`  
+`pip3 install TA-Lib`  
