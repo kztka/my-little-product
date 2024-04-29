@@ -2,12 +2,12 @@
 Copyright(C) 2024 Kazuki Takahashi  All rights reserved in this repository files.  
 本リポジトリ内のファイルは全て著作権関連法令に基づいた取り扱いをお願いいたします。  
 
-#### 目次
+### 目次
 - Unity制作中ゲーム「Empire of Mechs」(game/empireofmechs(TBD))
 - 仮想通貨自動取引プログラム(auto_exchange/GMOcoin)
-- X関連ツール群 ※ツイート自動削除、自動フォロー/アンフォロー(xtool)
+- Xポスト自動削除、自動フォロー/アンフォロー(xtool)
 - 楽譜スコアから自パートのみを切り抜くツール(gakuhu_part_pickup)
-- ゲーム関連ツール群 ※WebからキャラクターパラメータCSV抽出等(gametool)
+- ゲームのキャラクターパラメータCSV抽出ツール(gametool)
 - Windows画像形式変換バッチ(windows_batch)
 - ネット掲示板形式の小説作成時に各々の書込み時刻をふらすツール(shosetsu/5ch_like)
 
