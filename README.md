@@ -8,8 +8,14 @@ Copyright(C) 2024 Kazuki Takahashi  All rights reserved in this repository files
 - Xポスト自動削除、自動フォロー/アンフォロー(xtool)
 - 楽譜スコアから自パートのみを切り抜くツール(gakuhu_part_pickup)
 - ゲームのキャラクターパラメータCSV抽出ツール(gametool)
-- Windows画像形式変換バッチ(windows_batch)
+- Windows画像形式一括変換バッチ(windows_batch)
 - ネット掲示板形式の小説作成時に各々の書込み時刻をふらすツール(shosetsu/5ch_like)
+
+## Unity制作中ゲーム「Empire of Mechs」(game/empireofmechs(TBD))
+#### 概要
+#### 作成期間
+#### 使い方
+#### 動作確認環境
 
 ## 仮想通貨自動取引プログラム(auto_exchange/GMOcoin)
 #### 概要
@@ -71,3 +77,33 @@ TA-Libインストール
 `sudo make install ( 削除はsudo make uninstall )`  
 `cd ../`  
 `pip3 install TA-Lib`  
+
+## Xポスト自動削除、自動フォロー/アンフォロー(xtool)
+#### 概要
+#### 作成期間
+#### 使い方
+#### 動作確認環境
+
+## 楽譜スコアから自パートのみを切り抜くツール(gakuhu_part_pickup)
+#### 概要
+#### 作成期間
+#### 使い方
+#### 動作確認環境
+
+## ゲームのキャラクターパラメータCSV抽出ツール(gametool)
+#### 概要
+#### 作成期間
+#### 使い方
+#### 動作確認環境
+
+## Windows画像形式一括変換バッチ(windows_batch)
+#### 概要
+#### 作成期間
+#### 使い方
+#### 動作確認環境
+
+## ネット掲示板形式の小説作成時に各々の書込み時刻をふらすツール(shosetsu/5ch_like)
+#### 概要
+#### 作成期間
+#### 使い方
+#### 動作確認環境
