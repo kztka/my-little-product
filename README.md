@@ -13,9 +13,49 @@ Copyright(C) 2024 Kazuki Takahashi  All rights reserved in this repository files
 
 ## Unity制作中ゲーム「Empire of Mechs」(game/empireofmechs(TBD))
 #### 概要
-#### 作成期間
+インディーズゲームとして個人で制作しているターン制戦略シミュレーションゲーム。  
+イメージとしては信長の野望のロボット版。  
+その他有名SLGタイトル(ギレンの野望、Civ、Paradox社ゲーム等)の要素も足して中毒性を付加し中盤～終盤のダレも解消できるようにする。<br><br>
+- DesignDocument  
+設計資料/管理簿を格納。  
+    - スタティック変数設計.xlsx  
+    - データベース設計.xlsx  
+    - バグ管理簿.xlsx  
+    - 概要設計.xlsx  
+    - 画面遷移設計.xlsx  
+    - 設定ファイル設計.xlsx  
+
+- Assets  
+スクリプトやリソースファイル等を格納したディレクトリ。  
+    - Data  
+      DBに格納する各種ゲームデータ
+    - Image  
+      ゲームで使用する各種画像  
+    - Packages  
+      スクリプトで使用する外部DLL  
+    - Plugins  
+      Unityの機能を拡張する外部DLL  
+    - Scenes  
+      ゲームの各画面データ  
+    - Script  
+      ゲームの制御スクリプト(C#)  
+    - StreamingAssets  
+      ビルドバイナリに含まずターゲットのマシンに直接格納するファイル  
+    - TextMesh Pro  
+      ゲーム上でのテキスト表示プラグイン  
+    - Tilemap  
+      タイルマップ(画像をタイル状に配置)のデータ  
+
+
+#### 規模 / 作成期間
+約1.2kL / 90人時程度 ※2024/4/30時点
 #### 使い方
+Unity Hubでエディターバージョン2022.3.12f1で新規プロジェクトを作成し、そのプロジェクトのAssetsを本リポジトリのAssetsに差し替える
 #### 動作確認環境
+Windows 11  
+Unity Hub 3.8.0  
+Unity Editor 2022.3.12f1  
+その他使用している外部パッケージは「概要設計.xlsx」の「使用OSS」シートを参照
 
 ## 仮想通貨自動取引プログラム(auto_exchange/GMOcoin)
 #### 概要
@@ -40,8 +80,9 @@ https://info.monex.co.jp/technical-analysis/indicators/002.html
 https://note.com/scilabcafe/n/ne7e080cad499  
   
   
-#### 作成期間
-5日程度
+#### 規模 / 作成期間
+約0.9kL / 50人時程度  
+※2ファイル合計は1.3kLだがcoin_autoexchange_technical.pyはマイナーチェンジ版の為変更部分のみ加算
 
 
 #### 使い方
@@ -80,30 +121,30 @@ TA-Libインストール
 
 ## Xポスト自動削除、自動フォロー/アンフォロー(xtool)
 #### 概要
-#### 作成期間
+#### 規模 / 作成期間
 #### 使い方
 #### 動作確認環境
 
 ## 楽譜スコアから自パートのみを切り抜くツール(gakuhu_part_pickup)
 #### 概要
-#### 作成期間
+#### 規模 / 作成期間
 #### 使い方
 #### 動作確認環境
 
 ## ゲームのキャラクターパラメータCSV抽出ツール(gametool)
 #### 概要
-#### 作成期間
+#### 規模 / 作成期間
 #### 使い方
 #### 動作確認環境
 
 ## Windows画像形式一括変換バッチ(windows_batch)
 #### 概要
-#### 作成期間
+#### 規模 / 作成期間
 #### 使い方
 #### 動作確認環境
 
 ## ネット掲示板形式の小説作成時に各々の書込み時刻をふらすツール(shosetsu/5ch_like)
 #### 概要
-#### 作成期間
+#### 規模 / 作成期間
 #### 使い方
 #### 動作確認環境
