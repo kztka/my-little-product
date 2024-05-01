@@ -178,7 +178,7 @@ https://help.twitter.com/ja/managing-your-account/how-to-download-your-x-archive
 6. アクセストークンを取得/自動リフレッシュ  
 ```nohup python token_refresh.py [Client ID] [Client Secret] [code] https://127.0.0.1:3000/cb [code_verifier] > token_refresh-`date +%Y%m%d_%H%M%S`.log 2>&1 &```  
 →直下にaccess_token.txtが生成される。  
-7. ツイート削除実行  
+7. ポスト削除実行  
 ```nohup python tweet_listdelete.py [4.で作成した削除対象ポストリスト] > tweet_listdelete-`date +%Y%m%d_%H%M%S`.log 2>&1 &```  
 
 #### 動作確認環境
