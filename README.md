@@ -5,7 +5,8 @@ Copyright(C) 2024 Kazuki Takahashi  All rights reserved in this repository files
 ### 目次
 - Unity制作中ゲーム「Empire of Mechs」(game/empireofmechs(TBD))
 - 仮想通貨自動取引プログラム(auto_exchange/GMOcoin)
-- Xポスト自動削除、自動フォロー/アンフォロー(xtool)
+- Xポスト一括自動削除(xtool)
+- X自動フォロー/アンフォロー(xtool)
 - 楽譜スコアから自パートのみを切り抜くツール(gakuhu_part_pickup)
 - ゲームのキャラクターパラメータCSV抽出ツール(gametool)
 - Windows画像形式一括変換バッチ(windows_batch)
@@ -120,7 +121,73 @@ TA-Libインストール
 `cd ../`  
 `pip3 install TA-Lib`  
 
-## Xポスト自動削除、自動フォロー/アンフォロー(xtool)
+## Xポスト一括自動削除(xtool)
+#### 概要
+ユーザがリストアップした削除対象Xポストリストを元に一括で自動削除を行うツール。  
+通常、業者に費用を払って業者サイト/アプリ経由で行う作業を無料で実施できる。<br><br>
+
+- tweet_listup.py  
+エクスポートしたポスト履歴内のdata->tweets.jsから純粋な内容(ID,投稿日時,本文)のみを抜き出したリストを抽出する。  
+ポスト履歴のエクスポート方法は以下サポートページを参照。  
+https://help.twitter.com/ja/managing-your-account/how-to-download-your-x-archive  
+- token_refresh.py  
+XへのAPIアクセスに必要なアクセストークンを自動的にリフレッシュする  
+- tweet_listdelete.py  
+tweet_listup.pyで抽出したリストからユーザが必要なポストのみを削除したリスト（削除対象ポストリスト）を元に一括で削除処理を行う。  
+※月間APIアクセス数制限(月間1500アクセス)の為30分に1ポストの削除となる。  
+- tweet_delete.py  
+tweet_listdelete.pyから実行されるサブツール。指定されたIDのポストを削除する。単独での実行も可能。  
+
+#### 規模 / 作成期間
+約0.2kL / 20人時程度
+#### 使い方
+1. 以下サポートページを参考にポスト履歴を取得する(申請してから大体24hで取得できる)  
+https://help.twitter.com/ja/managing-your-account/how-to-download-your-x-archive  
+2. 取得したポスト履歴を解凍しdataフォルダにあるtweets.jsをtweet_listup.pyのある環境に転送する  
+3. tweets.jsからポストリストを抽出する  
+     1. tweets.jsを一部手動で加工(先頭行を削除して[に置き換える)  
+        Before : window.YTD.tweets.part0 = [  
+        After  : [  
+     2. tweet_listup.pyを実行して直下にポストリストが出力されている事を確認  
+        `python tweet_listup.py [tweets.js filepath]`  
+        →直下にtweetlist_YYYYMMDD-hhmmss.txtが出力  
+4. ポストリストを編集して**削除不要な**ポストをリストから削除
+`vi tweetlist_YYYYMMDD-hhmmss.txt`
+5. Twitter Developer Portalに対してAppの認証をOauth2.0で行う。  
+以下をブラウザのURLに打ち込む  
+`https://twitter.com/i/oauth2/authorize?response_type=code&client_id=[Client ID]&redirect_uri=https://127.0.0.1:3000/cb&scope=tweet.read%20tweet.write%20users.read%20follows.write%20offline.access&state=abc&code_challenge=[計算したcode_challengeの値]&code_challenge_method=s256`
+承認すると以下がリダイレクトされるのでcodeの値を保存しておく。  
+`https://127.0.0.1:3000/cb?state=abc&code=[codeの値]`  
+※事前にポスト削除対象アカウントのTwitter Developer Accountを開設しClient IDとClient Secretを取得しておくこと。以下参考  
+  Twitter APIのKeyやSecretの取得・確認手順※2023年10月最新  
+　https://programming-zero.net/twitter-api-process/  
+※事前にTwitter Developer Portalの今回使用App->User authentication settingsの設定を行っておくこと。  
+  「Type of App」-> Native App  
+  「App info」-> Callback URI / Redirect URL (※認証完了時にリダイレクトされるURL。今回は認証結果の値が欲しいだけなので適当なURLを設定) :  
+                 https://127.0.0.1:3000/cb  
+                 http://127.0.0.1:3000/cb  
+                 Website URL :  
+                 https://twitter.com/[ポスト削除対象アカウントID]  
+                 他は入力不要  
+※事前に以下を参考にcode_verifierとcode_challengeの値を計算しておくこと  
+  【Python】OAuth2.0認証を利用してTwitter APIと連携し、認証されたTwitter IDを得る方法  
+  https://zenn.dev/yuk6ra/articles/0874eac6336c40  
+  ````
+  code_verifier = hashlib.sha256(os.urandom(128)).hexdigest()
+  code_challenge_sha256 = hashlib.sha256(code_verifier.encode()).digest()
+  code_challenge = base64.urlsafe_b64encode(code_challenge_sha256).decode().rstrip("=")
+  ````
+6. アクセストークンを取得/自動リフレッシュ  
+`nohup python token_refresh.py [ClientID] [ClientSecret] [code] [redirect_uri] [code_verifier] > token_refresh-`date +%Y%m%d_%H%M%S`.log 2>&1 &`  
+→直下にaccess_token.txtが生成される。  
+7. ツイート削除実行  
+`nohup python tweet_listdelete.py [4.で作成した削除対象ポストリスト] > tweet_listdelete-`date +%Y%m%d_%H%M%S`.log 2>&1 &`  
+
+#### 動作確認環境
+Amazon Linux 2  
+Python 2.7.18  
+
+## X自動フォロー/アンフォロー(xtool)
 #### 概要
 #### 規模 / 作成期間
 #### 使い方
