@@ -172,11 +172,11 @@ https://help.twitter.com/ja/managing-your-account/how-to-download-your-x-archive
 ※事前に以下を参考にcode_verifierとcode_challengeの値を計算しておくこと  
 　【Python】OAuth2.0認証を利用してTwitter APIと連携し、認証されたTwitter IDを得る方法  
 　https://zenn.dev/yuk6ra/articles/0874eac6336c40  
-````
-code_verifier = hashlib.sha256(os.urandom(128)).hexdigest()
-code_challenge_sha256 = hashlib.sha256(code_verifier.encode()).digest()
-code_challenge = base64.urlsafe_b64encode(code_challenge_sha256).decode().rstrip("=")
-````
+    ````
+    code_verifier = hashlib.sha256(os.urandom(128)).hexdigest()
+    code_challenge_sha256 = hashlib.sha256(code_verifier.encode()).digest()
+    code_challenge = base64.urlsafe_b64encode(code_challenge_sha256).decode().rstrip("=")
+    ````
 6. アクセストークンを取得/自動リフレッシュ  
 ```nohup python token_refresh.py [Client ID] [Client Secret] [code] https://127.0.0.1:3000/cb [code_verifier] > token_refresh-`date +%Y%m%d_%H%M%S`.log 2>&1 &```  
 →直下にaccess_token.txtが生成される。  
