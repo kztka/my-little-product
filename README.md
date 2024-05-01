@@ -159,7 +159,6 @@ https://help.twitter.com/ja/managing-your-account/how-to-download-your-x-archive
 承認すると以下がリダイレクトされるのでcodeの値を保存しておく。  
 `https://127.0.0.1:3000/cb?state=abc&code=[codeの値]`  
 ※事前にポスト削除対象アカウントのTwitter Developer Accountを開設しClient IDとClient Secretを取得しておくこと。以下参考  
-　Twitter APIのKeyやSecretの取得・確認手順※2023年10月最新  
 　https://programming-zero.net/twitter-api-process/  
 ※事前にTwitter Developer Portalの今回使用App->User authentication settingsの設定を行っておくこと。  
 　「Type of App」-> Native App  
@@ -170,7 +169,6 @@ https://help.twitter.com/ja/managing-your-account/how-to-download-your-x-archive
 　　　　　　　　 https://twitter.com/[ポスト削除対象アカウントID]  
 　　　　　　　　 他は入力不要  
 ※事前に以下を参考にcode_verifierとcode_challengeの値を計算しておくこと  
-　【Python】OAuth2.0認証を利用してTwitter APIと連携し、認証されたTwitter IDを得る方法  
 　https://zenn.dev/yuk6ra/articles/0874eac6336c40  
     ````
     code_verifier = hashlib.sha256(os.urandom(128)).hexdigest()
