@@ -151,7 +151,7 @@ https://help.twitter.com/ja/managing-your-account/how-to-download-your-x-archive
      2. tweet_listup.pyを実行して直下にポストリストが出力されている事を確認  
         `python tweet_listup.py [tweets.js filepath]`  
         →直下にtweetlist_YYYYMMDD-hhmmss.txtが出力  
-4. ポストリストを編集して**削除不要な**ポストをリストから削除
+4. ポストリストを編集して**削除不要な**ポストをリストから削除  
 `vi tweetlist_YYYYMMDD-hhmmss.txt`
 5. Twitter Developer Portalに対してAppの認証をOauth2.0で行う。  
 以下をブラウザのURLに打ち込む  
