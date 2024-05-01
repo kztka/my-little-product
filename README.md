@@ -155,33 +155,33 @@ https://help.twitter.com/ja/managing-your-account/how-to-download-your-x-archive
 `vi tweetlist_YYYYMMDD-hhmmss.txt`
 5. Twitter Developer Portalに対してAppの認証をOauth2.0で行う。  
 以下をブラウザのURLに打ち込む  
-`https://twitter.com/i/oauth2/authorize?response_type=code&client_id=[Client ID]&redirect_uri=https://127.0.0.1:3000/cb&scope=tweet.read%20tweet.write%20users.read%20follows.write%20offline.access&state=abc&code_challenge=[計算したcode_challengeの値]&code_challenge_method=s256`
+`https://twitter.com/i/oauth2/authorize?response_type=code&client_id=[Client ID]&redirect_uri=https://127.0.0.1:3000/cb&scope=tweet.read%20tweet.write%20users.read%20follows.write%20offline.access&state=abc&code_challenge=[計算したcode_challengeの値]&code_challenge_method=s256`  
 承認すると以下がリダイレクトされるのでcodeの値を保存しておく。  
 `https://127.0.0.1:3000/cb?state=abc&code=[codeの値]`  
 ※事前にポスト削除対象アカウントのTwitter Developer Accountを開設しClient IDとClient Secretを取得しておくこと。以下参考  
-  Twitter APIのKeyやSecretの取得・確認手順※2023年10月最新  
+　Twitter APIのKeyやSecretの取得・確認手順※2023年10月最新  
 　https://programming-zero.net/twitter-api-process/  
 ※事前にTwitter Developer Portalの今回使用App->User authentication settingsの設定を行っておくこと。  
-  「Type of App」-> Native App  
-  「App info」-> Callback URI / Redirect URL (※認証完了時にリダイレクトされるURL。今回は認証結果の値が欲しいだけなので適当なURLを設定) :  
-                 https://127.0.0.1:3000/cb  
-                 http://127.0.0.1:3000/cb  
-                 Website URL :  
-                 https://twitter.com/[ポスト削除対象アカウントID]  
-                 他は入力不要  
+　「Type of App」-> Native App  
+　「App info」-> Callback URI / Redirect URL (※認証完了時にリダイレクトされるURL。今回は認証結果の値が欲しいだけなので適当なURLを設定) :  
+　　　　　　　　 https://127.0.0.1:3000/cb  
+　　　　　　　　 http://127.0.0.1:3000/cb  
+　　　　　　　　 Website URL :  
+　　　　　　　　 https://twitter.com/[ポスト削除対象アカウントID]  
+　　　　　　　　 他は入力不要  
 ※事前に以下を参考にcode_verifierとcode_challengeの値を計算しておくこと  
-  【Python】OAuth2.0認証を利用してTwitter APIと連携し、認証されたTwitter IDを得る方法  
-  https://zenn.dev/yuk6ra/articles/0874eac6336c40  
-  ````
-  code_verifier = hashlib.sha256(os.urandom(128)).hexdigest()
-  code_challenge_sha256 = hashlib.sha256(code_verifier.encode()).digest()
-  code_challenge = base64.urlsafe_b64encode(code_challenge_sha256).decode().rstrip("=")
-  ````
+　【Python】OAuth2.0認証を利用してTwitter APIと連携し、認証されたTwitter IDを得る方法  
+　https://zenn.dev/yuk6ra/articles/0874eac6336c40  
+　````
+　code_verifier = hashlib.sha256(os.urandom(128)).hexdigest()
+　code_challenge_sha256 = hashlib.sha256(code_verifier.encode()).digest()
+　code_challenge = base64.urlsafe_b64encode(code_challenge_sha256).decode().rstrip("=")
+　````
 6. アクセストークンを取得/自動リフレッシュ  
-`nohup python token_refresh.py [ClientID] [ClientSecret] [code] [redirect_uri] [code_verifier] > token_refresh-`date +%Y%m%d_%H%M%S`.log 2>&1 &`  
+```nohup python token_refresh.py [Client ID] [Client Secret] [code] https://127.0.0.1:3000/cb [code_verifier] > token_refresh-`date +%Y%m%d_%H%M%S`.log 2>&1 &```  
 →直下にaccess_token.txtが生成される。  
 7. ツイート削除実行  
-`nohup python tweet_listdelete.py [4.で作成した削除対象ポストリスト] > tweet_listdelete-`date +%Y%m%d_%H%M%S`.log 2>&1 &`  
+```nohup python tweet_listdelete.py [4.で作成した削除対象ポストリスト] > tweet_listdelete-`date +%Y%m%d_%H%M%S`.log 2>&1 &```  
 
 #### 動作確認環境
 Amazon Linux 2  
