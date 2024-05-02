@@ -178,6 +178,8 @@ https://help.twitter.com/ja/managing-your-account/how-to-download-your-x-archive
 6. アクセストークンを取得/自動リフレッシュ  
 ```nohup python token_refresh.py [Client ID] [Client Secret] [code] https://127.0.0.1:3000/cb [code_verifier] > token_refresh-`date +%Y%m%d_%H%M%S`.log 2>&1 &```  
 →直下にaccess_token.txtが生成される。  
+※以下エラーが出る場合は5.から6.の間でコードの期限が切れている可能性があるので再度5.から試してみる事  
+{"error":"invalid_request","error_description":"Value passed for the authorization code was invalid."}  
 7. ポスト削除実行  
 ```nohup python tweet_listdelete.py [4.で作成した削除対象ポストリスト] > tweet_listdelete-`date +%Y%m%d_%H%M%S`.log 2>&1 &```  
 
@@ -187,9 +189,38 @@ Python 2.7.18
 
 ## X自動フォロー/アンフォロー(xtool)
 #### 概要
+自分がフォローしているユーザをリスト化し、削除リストあるいは追加リストを作り  
+自動で一括アンフォロー/フォローを行う。  
+フォロー整理やフォローしている人を別のアカウントに付け替えたい時に使用。<br><br>
+
+- get_followers_list.py  
+対象ユーザを指定しその人がフォローしている人をリスト化する。  
+- following.py  
+指定されたユーザリストを元に対象ユーザに対してアンフォローあるいはフォローを一括で行う。  
+
+
 #### 規模 / 作成期間
+約0.1kL / 10人時程度
 #### 使い方
+1. 「Xポスト一括自動削除(xtool)」の手順1.～6.を実施し操作対象ユーザのアクセストークンを取得する(access_token.txtの内容)。  
+2. 対象ユーザのフォローリストを作成  
+`python get_followers_list.py [アクセストークン] [user id] [outfilename]`  
+→[user id]:通常使うユーザ名ではなく内部のユーザIDとなる。以下サイトを参考に確認する。  
+　　　　　　https://news.mynavi.jp/article/20220427-2331639/  
+　[outfilename]:出力先ファイル名  
+3. 出力されたフォローリストからアンフォローしたいあるいは別アカウントに付け替えたいユーザリストを作る  
+`vi [2.で出力したファイル]`  
+4. 対象ユーザに対して一括アンフォローあるいは一括フォローを実施  
+`python following.py [アクセストークン] [user id] [infilename] [option(follow or unfollow)]`  
+→[user id]:2.と同様。なお、2.と別ユーザに対して行う場合はそのユーザに対して1.を再実施しアクセストークンを取り直す事。  
+　[infilename]:3.で作成したユーザリスト  
+  [option(follow or unfollow)]:フォローかアンフォローかに応じてfollow/unfollowのいずれかを指定する  
+→30秒間隔で1ユーザのフォロー/アンフォローを行う。  
+　アクセストークンの有効期限が切れた場合は401になる為完了した分リストを削ってリフレッシュされたトークンを使用しリトライする事(トークンリフレッシュの対応は検討中)。  
+
 #### 動作確認環境
+Amazon Linux 2  
+Python 2.7.18  
 
 ## 楽譜スコアから自パートのみを切り抜くツール(gakuhu_part_pickup)
 #### 概要
