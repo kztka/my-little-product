@@ -3,10 +3,10 @@ Copyright(C) 2024 Kazuki Takahashi  All rights reserved in this repository files
 本リポジトリ内のファイルは全て著作権関連法令に基づいた取り扱いをお願いいたします。  
 
 ### 目次
-- Unity制作中ゲーム「Empire of Mechs」(game/empireofmechs(TBD)) 約1.2kL / 90人時程度 ※2024/4/30時点
-- 仮想通貨自動取引プログラム(auto_exchange/GMOcoin) 約0.9kL / 50人時程度
-- Xポスト一括自動削除(xtool) 約0.2kL / 20人時程度
-- X自動フォロー/アンフォロー(xtool) 約0.1kL / 10人時程度
+- Unity制作中ゲーム「Empire of Mechs」(game/empireofmechs(TBD)) [約1.2kL / 90人時程度 ※2024/4/30時点]
+- 仮想通貨自動取引プログラム(auto_exchange/GMOcoin) [約0.9kL / 50人時程度]
+- Xポスト一括自動削除(xtool) [約0.2kL / 20人時程度]
+- X自動フォロー/アンフォロー(xtool) [約0.1kL / 10人時程度]
 - 楽譜スコアから自パートのみを切り抜くツール(gakuhu_part_pickup)
 - ゲームのキャラクターパラメータCSV抽出ツール(gametool)
 - Windows画像形式一括変換バッチ(windows_batch)
