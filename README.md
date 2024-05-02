@@ -214,7 +214,7 @@ Python 2.7.18
 `python following.py [アクセストークン] [user id] [infilename] [option(follow or unfollow)]`  
 →[user id]:2.と同様。なお、2.と別ユーザに対して行う場合はそのユーザに対して1.を再実施しアクセストークンを取り直す事。  
 　[infilename]:3.で作成したユーザリスト  
-  [option(follow or unfollow)]:フォローかアンフォローかに応じてfollow/unfollowのいずれかを指定する  
+　[option(follow or unfollow)]:フォローかアンフォローかに応じてfollow/unfollowのいずれかを指定する  
 →30秒間隔で1ユーザのフォロー/アンフォローを行う。  
 　アクセストークンの有効期限が切れた場合は401になる為完了した分リストを削ってリフレッシュされたトークンを使用しリトライする事(トークンリフレッシュの対応は検討中)。  
 
