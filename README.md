@@ -254,7 +254,7 @@ Python 2.7.18
         ```
 3. 転送したディレクトリを指定して切り抜きツール実行  
 `python3 gakuhu_part_pickup.py [1.で転送した先のディレクトリパス]`  
-→直下に「out_gakuhu_part_YYYYMMDD-hhmmss_pageX.jpg」というファイル群が出来るためこれを転送する。  
+→直下に出来る「out_gakuhu_part_YYYYMMDD-hhmmss_pageX.jpg」というファイル群が切り抜いたものの纏め画像となる。  
 
 #### 動作確認環境
 Amazon Linux 2  
