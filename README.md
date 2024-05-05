@@ -283,7 +283,7 @@ Gジェネレーションクロスレイズというゲームの攻略サイトU
 Amazon Linux 2  
 Python 3.7.16  
 
-また、事前に以下ライブラリをインストールする
+また、事前に以下ライブラリをインストールする  
 `pip3 install beautifulsoup4`
 
 ## Windows画像形式一括変換バッチ(windows_batch)
