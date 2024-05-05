@@ -276,7 +276,15 @@ Gジェネレーションクロスレイズというゲームの攻略サイトU
 #### 規模 / 作成期間
 約0.1kL / 10人時程度
 #### 使い方
+- make_chara_datasheet.py  
+`python3 make_chara_datasheet.py`
+→実行後、直下に「Ggen_crossrays_charadata_YYYYMMDD-hhmmss.csv」が作成される。
 #### 動作確認環境
+Amazon Linux 2  
+Python 3.7.16  
+
+また、事前に以下ライブラリをインストールする
+`pip3 install beautifulsoup4`
 
 ## Windows画像形式一括変換バッチ(windows_batch)
 #### 概要
