@@ -271,7 +271,10 @@ Python 3.7.16
 
 - make_chara_datasheet.py  
 Gジェネレーションクロスレイズというゲームの攻略サイトURLにアクセスしてhtmlソースを取得しタグを解析して  
-各キャラクターのパラメータ情報を取得しcsvファイルとして落とし込むツール。
+各キャラクターのパラメータ情報を取得しcsvファイルとして落とし込むツール。  
+- UEBS2_bgmod_to_csv.py  
+UEBS2というゲームの複数MODデータからキャラクターデータが記述されているテキストファイルを読み出し、  
+取得したパラメータ情報を纏めてcsvファイルとして落とし込むツール。  
 
 #### 規模 / 作成期間
 約0.1kL / 10人時程度
@@ -279,12 +282,18 @@ Gジェネレーションクロスレイズというゲームの攻略サイトU
 - make_chara_datasheet.py  
 `python3 make_chara_datasheet.py`
 →実行後、直下に「Ggen_crossrays_charadata_YYYYMMDD-hhmmss.csv」が作成される。
-#### 動作確認環境
-Amazon Linux 2  
-Python 3.7.16  
+- UEBS2_bgmod_to_csv.py  
+ダブルクリックで実行後、直下にUEBS2_unitdata_YYYYMMDD-hhmmss.csvが作成される。
 
+#### 動作確認環境
+- make_chara_datasheet.py  
+Amazon Linux 2  
+Python 3.7.16<br><br>
 また、事前に以下ライブラリをインストールする  
-`pip3 install beautifulsoup4`
+`pip3 install beautifulsoup4`  
+- UEBS2_bgmod_to_csv.py  
+Windows 11  
+
 
 ## Windows画像形式一括変換バッチ(windows_batch)
 #### 概要
