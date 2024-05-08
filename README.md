@@ -297,9 +297,21 @@ Windows 11
 
 ## Windows画像形式一括変換バッチ(windows_batch)
 #### 概要
+バッチ本体と同一階層にある画像ファイル全てについて一括形式変換を行う。<br><br>
+- pdftopng.bat  
+PDFファイルをPNGファイルに一括変換する。  
+- webptopng.bat  
+WEBPファイルをPNGファイルに一括変換する。  
+
 #### 規模 / 作成期間
+約0.02kL / 2人時程度
 #### 使い方
+バッチファイルを変換したい画像ファイル群が置いてあるフォルダに配置してダブルクリックでバッチを実行する。
 #### 動作確認環境
+Windows 11  
+  
+また、事前にImageMagickをインストールする  
+https://imagemagick.org/script/download.php
 
 ## ネット掲示板形式の小説作成時に各々の書込み時刻をふらすツール(shosetsu/5ch_like)
 #### 概要
