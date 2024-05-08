@@ -312,9 +312,3 @@ Windows 11
   
 また、事前にImageMagickをインストールする  
 https://imagemagick.org/script/download.php
-
-## ネット掲示板形式の小説作成時に各々の書込み時刻をふらすツール(shosetsu/5ch_like)
-#### 概要
-#### 規模 / 作成期間
-#### 使い方
-#### 動作確認環境
