@@ -1,6 +1,5 @@
 # 個人で作成したツール/ソフトウェア集
 Copyright(C) 2024 Kazuki Takahashi  All rights reserved in this repository files.  
-本リポジトリ内のファイルは全て著作権関連法令に基づいた取り扱いをお願いいたします。  
 
 ### 目次
 - Unity制作中ゲーム「Empire of Mechs」(game/empireofmechs(TBD))　[約1.2kL / 90人時程度 ※2024/4/30時点]
